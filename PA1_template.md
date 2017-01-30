@@ -121,6 +121,9 @@ steps_by_interval_weekends <- aggregate(steps ~ interval, weekend_steps, mean)
 
 weekday_mean_steps = mean(steps_by_interval_weekdays$steps)
 plot(steps_by_interval_weekdays, type = "l", main = "Weekdays")
+xx <- c(steps_by_interval_weekdays$interval, rev(steps_by_interval_weekdays$interval))
+yy <- c(rep(0, nrow(steps_by_interval_weekdays)), rev(steps_by_interval_weekdays$steps))
+polygon(xx, yy, col='blue')
 abline(h=weekday_mean_steps)
 ```
 
@@ -129,6 +132,9 @@ abline(h=weekday_mean_steps)
 ```r
 weekend_mean_steps = mean(steps_by_interval_weekends$steps)
 plot(steps_by_interval_weekends, type = "l", main = "Weekends")
+xx <- c(steps_by_interval_weekends$interval, rev(steps_by_interval_weekends$interval))
+yy <- c(rep(0, nrow(steps_by_interval_weekends)), rev(steps_by_interval_weekends$steps))
+polygon(xx, yy, col='yellow')
 abline(h=weekend_mean_steps)
 ```
 
