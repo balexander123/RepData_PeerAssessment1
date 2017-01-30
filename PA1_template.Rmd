@@ -31,7 +31,7 @@ median(steps_by_date$steps)
 
 * Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{R}
+```{R echo=TRUE}
 
 steps_by_interval <- aggregate(steps ~ interval, activity_data, mean)
 max_interval <- steps_by_interval$interval[which.max(steps_by_interval$steps)]
@@ -43,7 +43,7 @@ polygon(xx, yy, col='orange')
 
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
-```{R}
+```{R echo=TRUE}
 steps_by_interval$interval[which.max(steps_by_interval$steps)]
 ```
 
@@ -53,7 +53,7 @@ steps_by_interval$interval[which.max(steps_by_interval$steps)]
 
 * Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
-```{R}
+```{R echo=TRUE}
 sum(is.na(activity_data$steps))
 ```
 
@@ -63,7 +63,7 @@ sum(is.na(activity_data$steps))
 
 **Stategy: Fill missing values with zero.**
 
-```{R}
+```{R echo=TRUE}
 activity_data_noNAs <- activity_data
 activity_data_noNAs[is.na(activity_data_noNAs$steps), "steps"] <- 0
 
@@ -79,7 +79,7 @@ hist(steps_by_date_noNAs$steps,breaks=10,main="Steps by day", xlab = "Steps", co
 
 * Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
-```{R}
+```{R echo=TRUE}
 
 activity_data_noNAs$day_number <- as.POSIXlt(activity_data_noNAs$date)$wday
 activity_data_noNAs$day_type <- as.factor(ifelse(activity_data_noNAs$day_number == 0 | activity_data_noNAs$day_number == 6, "weekend", "weekday"))
@@ -91,7 +91,7 @@ weekend_steps <- activity_data_noNAs[activity_data_noNAs$day_type == "weekend",]
 
 * Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
 
-```{R}
+```{R echo=TRUE}
 steps_by_interval_weekdays <- aggregate(steps ~ interval, weekday_steps, mean)
 steps_by_interval_weekends <- aggregate(steps ~ interval, weekend_steps, mean)
 
