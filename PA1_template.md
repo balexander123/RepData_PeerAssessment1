@@ -99,6 +99,26 @@ hist(steps_by_date_noNAs$steps,breaks=10,main="Steps by day", xlab = "Steps", co
 
 * Replacing missing values with zeros causes the histogram to have more left most values.
 
+
+* Calculate and report the **mean** and **median** total number of steps taken per day after imputing missing values.  The mean and median are both less than the original with missing values. 
+
+
+```r
+mean(steps_by_date_noNAs$steps)
+```
+
+```
+## [1] 9354.23
+```
+
+```r
+median(steps_by_date_noNAs$steps)
+```
+
+```
+## [1] 10395
+```
+
 ## Are there differences in activity patterns between weekdays and weekends?
 
 * Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
@@ -127,7 +147,7 @@ polygon(xx, yy, col='blue')
 abline(h=weekday_mean_steps)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 ```r
 weekend_mean_steps = mean(steps_by_interval_weekends$steps)
@@ -138,6 +158,6 @@ polygon(xx, yy, col='yellow')
 abline(h=weekend_mean_steps)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-2.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-2.png)<!-- -->
 
 * In general, people are more active on the weekends as seen by mean numbers of steps between weekdays (30.6262346) and weekends (37.6935764).  Also people tend to sleep in later on weekends as there less steps taken between intervals 500 to 750 (~ 8am to noon).

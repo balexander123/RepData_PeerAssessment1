@@ -75,6 +75,14 @@ hist(steps_by_date_noNAs$steps,breaks=10,main="Steps by day", xlab = "Steps", co
 
 * Replacing missing values with zeros causes the histogram to have more left most values.
 
+
+* Calculate and report the **mean** and **median** total number of steps taken per day after imputing missing values.  The mean and median are both less than the original with missing values. 
+
+```{R echo=TRUE}
+mean(steps_by_date_noNAs$steps)
+median(steps_by_date_noNAs$steps)
+```
+
 ## Are there differences in activity patterns between weekdays and weekends?
 
 * Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
